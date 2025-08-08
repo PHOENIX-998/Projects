@@ -1,8 +1,10 @@
+a = []
+b = []
+c = []
 class Myclass:
-    def __init__(self,name,age):
-        self.name = name
-        self.age = age
-    def __str__(self):
-        return f"{self.name}({self.age})"
-p1 = Myclass("Rajarshi",21)
-print(p1)
+    def add(n):
+        for i in range(n):
+            a.append(i)
+            b.append(i)
+            c.append(i+i)
+        return a,b,c
