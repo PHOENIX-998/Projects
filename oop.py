@@ -1,10 +1,14 @@
+# oop.py
 a = []
 b = []
 c = []
+
 class Myclass:
-    def add(n):
+    @staticmethod
+    def multiply(n):
         for i in range(n):
-            a.append(i)
-            b.append(i)
-            c.append(i+i)
-        return a,b,c
+            for j in range(n):
+                a.append(i)
+                b.append(j)
+                c.append(i * j)
+        return a, b, c
