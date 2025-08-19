@@ -1,21 +1,23 @@
-if __name__ == '__main__':
-    record = []
+message = "C"
 
-    for _ in range(int(input())):
-        record.append([input(), float(input())])
+l = list(bin(ord(message))[2:])
+temp = l[0]
+count = 0
+out = []
 
-    # Extract all unique scores and sort them
-    scores = sorted(set([student[1] for student in record]))
+for i in l:
+    if temp != i:
+        out.append((temp,count))
+        temp = i
+        count = 1
+    else:
+        count += 1
+out.append((temp, count))
 
-    # Get the second lowest score
-    second_lowest = scores[1]
-
-    # Get all names with the second lowest score
-    names = [student[0] for student in record if student[1] == second_lowest]
-
-    # Sort the names alphabetically
-    names.sort()
-
-    # Print each name on a new line (as per most coding challenge requirements)
-    for name in names:
-        print(name)
+# Unary encoding print
+for t, c in out:
+    if t == "1":
+        print("0 ", end="")   # header for '1' sequence
+    elif t == "0":
+        print("00 ", end="")  # header for '0' sequence
+    print("0" * c, end=" ")   # c zeros
